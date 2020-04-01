@@ -25,7 +25,8 @@ console.log(formatYear(new Date(2019)));
 console.log(formatDate (new Date(2020, 0, 1)));
 // 1 ม.ค. 2563
 
-console.log(formatFullDate(new Date(2020, 0, 1))); // พ. 1 ม.ค. 2563
+console.log(formatFullDate(new Date(2020, 0, 1)));
+// พ. 1 ม.ค. 2563
 
 ```
 
