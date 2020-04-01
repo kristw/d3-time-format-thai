@@ -11,22 +11,13 @@
 npm install d3-time-format-thai --save
 ```
 
+`timeFormat` and `utcFormat` takes the same format string as `d3-time-format`'s. [See documentation](https://github.com/d3/d3-time-format)
+
 ```ts
-import { thaiLocale, formatFullDate, formatDate, formatYear } from 'd3-time-format';
+import { timeFormat, utcFormat } from 'd3-time-format-thai';
 
-// Unfortunately %Y does not return buddhist calendar year
-const format = thaiLocale.format('%a %0d %b');
-console.log(format(new Date(2019, 10, 1)));
+console.log(timeFormat('%a %0d %b')(new Date(2019, 10, 1)));
 // ศ. 01 พ.ย.
-
-console.log(formatYear(new Date(2019)));
-// 2562
-
-console.log(formatDate (new Date(2020, 0, 1)));
-// 1 ม.ค. 2563
-
-console.log(formatFullDate(new Date(2020, 0, 1)));
-// พ. 1 ม.ค. 2563
 
 ```
 
