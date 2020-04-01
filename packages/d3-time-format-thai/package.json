@@ -1,5 +1,5 @@
 {
-  "name": "d3-time-format-th",
+  "name": "d3-time-format-thai",
   "version": "0.0.2",
   "description": "Thai locale for d3-time-format",
   "sideEffects": false,
@@ -31,5 +31,6 @@
   "dependencies": {
     "@types/d3-time-format": "^2.1.1",
     "d3-time-format": "2.2.3"
-  }
+  },
+  "gitHead": "b43744f472ddcf136f92d7d152784861745e2fd7"
 }

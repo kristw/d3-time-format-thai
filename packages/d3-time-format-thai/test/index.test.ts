@@ -1,4 +1,4 @@
-import { thaiLocale, formatYear, formatDate, formatFullDate, THAI_LOCALE_DEFINITION } from '../src';
+import { timeFormat, utcFormat, TimeFormats, THAI_LOCALE_DEFINITION } from '../src';
 
 describe('d3-time-format-thai', () => {
   describe('THAI_LOCALE_DEFINITION', () => {
@@ -7,32 +7,45 @@ describe('d3-time-format-thai', () => {
     });
   });
 
-  describe('thaiLocale', () => {
-    describe('.format()', () => {
-      it('returns a formatter', () => {
-        const format = thaiLocale.format('%a %0d %b');
-        expect(format(new Date(2019, 10, 1))).toEqual('ศ. 01 พ.ย.');
-        const format2 = thaiLocale.format('%0d/%m');
-        expect(format2(new Date(2019, 10, 1))).toEqual('01/11');
-      });
+  describe('TimeFormats', () => {
+    it('is exported', () => {
+      expect(TimeFormats).toBeDefined();
     });
   });
 
-  describe('formatYear()', () => {
-    it('returns buddhist calendar year', () => {
-      expect(formatYear(new Date(2020, 0, 1))).toEqual('2563');
+  describe('timeFormat()', () => {
+    it('returns a formatter', () => {
+      expect(timeFormat('%a %0d %b')(new Date(2019, 10, 1))).toEqual('ศ. 01 พ.ย.');
+      expect(timeFormat('%0d/%m')(new Date(2019, 10, 1))).toEqual('01/11');
+    });
+    it('handles year correctly', () => {
+      expect(timeFormat('%c')(new Date(2019, 10, 1))).toEqual('1 พ.ย. 62 00:00 น.');
+      expect(timeFormat('%x')(new Date(2019, 10, 1))).toEqual('1 พ.ย. 62');
+      expect(timeFormat('%Y')(new Date(2019, 10, 1))).toEqual('2562');
+      expect(timeFormat('%B %Y')(new Date(2019, 10, 1))).toEqual('พฤศจิกายน 2562');
+    });
+    it('handles short year correctly', () => {
+      expect(timeFormat('%y')(new Date(2019, 10, 1))).toEqual('62');
+      expect(timeFormat('%y%Y')(new Date(2019, 10, 1))).toEqual('622562');
+      expect(timeFormat('%b %y')(new Date(2019, 10, 1))).toEqual('พ.ย. 62');
     });
   });
 
-  describe('formatFullDate()', () => {
-    it('formats full date in Thai', () => {
-      expect(formatFullDate(new Date(2020, 0, 1))).toEqual('พ. 1 ม.ค. 2563');
+  describe('utcFormat()', () => {
+    it('returns a formatter', () => {
+      expect(utcFormat('%a %0d %b')(new Date(Date.UTC(2019, 10, 1)))).toEqual('ศ. 01 พ.ย.');
+      expect(utcFormat('%0d/%m')(new Date(Date.UTC(2019, 10, 1)))).toEqual('01/11');
     });
-  });
-
-  describe('formatDate()', () => {
-    it('formats short date in Thai', () => {
-      expect(formatDate(new Date(2020, 0, 1))).toEqual('1 ม.ค. 2563');
+    it('handles year correctly', () => {
+      expect(timeFormat('%c')(new Date(Date.UTC(2019, 10, 1)))).toEqual('1 พ.ย. 62 00:00 น.');
+      expect(timeFormat('%x')(new Date(Date.UTC(2019, 10, 1)))).toEqual('1 พ.ย. 62');
+      expect(timeFormat('%Y')(new Date(Date.UTC(2019, 10, 1)))).toEqual('2562');
+      expect(timeFormat('%B %Y')(new Date(Date.UTC(2019, 10, 1)))).toEqual('พฤศจิกายน 2562');
+    });
+    it('handles short year correctly', () => {
+      expect(timeFormat('%y')(new Date(Date.UTC(2019, 10, 1)))).toEqual('62');
+      expect(timeFormat('%y%Y')(new Date(Date.UTC(2019, 10, 1)))).toEqual('622562');
+      expect(timeFormat('%b %y')(new Date(Date.UTC(2019, 10, 1)))).toEqual('พ.ย. 62');
     });
   });
 });
