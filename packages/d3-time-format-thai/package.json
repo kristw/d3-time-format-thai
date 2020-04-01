@@ -1,6 +1,6 @@
 {
   "name": "d3-time-format-th",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Thai locale for d3-time-format",
   "sideEffects": false,
   "main": "lib/index.js",
