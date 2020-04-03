@@ -62,7 +62,7 @@ function factory(originalFormat: (format: string) => (d: Date) => string) {
       format.includes('%c');
 
     if (hasYear) {
-      const cleanedFormatter = locale.format(
+      const cleanedFormatter = originalFormat(
         format
           .replace(/%c/g, THAI_LOCALE_DEFINITION.dateTime)
           .replace(/%x/g, THAI_LOCALE_DEFINITION.date)
