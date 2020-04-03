@@ -11,7 +11,8 @@
 npm install d3-time-format-thai --save
 ```
 
-`timeFormat` and `utcFormat` takes the same format string as `d3-time-format`'s. [See documentation](https://github.com/d3/d3-time-format)
+`timeFormat` and `utcFormat` takes the same format string as `d3-time-format`'s.
+[See documentation](https://github.com/d3/d3-time-format)
 
 ```ts
 import { timeFormat, utcFormat } from 'd3-time-format-thai';
