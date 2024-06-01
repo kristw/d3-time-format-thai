@@ -2,8 +2,9 @@
 
 [![Codecov branch](https://img.shields.io/codecov/c/github/kristw/d3-time-format-thai/master.svg?style=flat-square)](https://codecov.io/gh/kristw/d3-time-format-thai/branch/master)
 [![Build Status](https://img.shields.io/travis/com/kristw/d3-time-format-thai/master.svg?style=flat-square)](https://travis-ci.com/kristw/d3-time-format-thai)
-[![David](https://img.shields.io/david/dev/kristw/d3-time-format-thai.svg?style=flat-square)](https://david-dm.org/kristw/d3-time-format-thai?type=dev)
 [![Version](https://img.shields.io/npm/v/d3-time-format-thai.svg?style=flat-square)](https://img.shields.io/npm/v/d3-time-format-thai.svg?style=flat-square)
+
+> As of May 31, 2024, this library was moved to [@unblocks](https://github.com/kristw/unblocks).
 
 ## Usage
 
